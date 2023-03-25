@@ -39,12 +39,16 @@ First example is the Farnbacke optical-flow algorithm, comparing speeds of:
 
 ## The C++ version of CUDA opencv was not investigated, only the python implementation was used.
 
-# NOTEs
+# NOTES
+
+## It was thought that the 128 CUDA cores would show a substantial performance gain that was not, in fact, demonstrated. Even comparing to the jetson nano's CPU-only case, the GPU implementation of the tested algorithm was only 2.4 times faster than the CPU.
+
+## Perhaps it is not surprising that the Acer performed so well, considering it was using 8 threads compared to the 4 threads of the jetson CPU and the RPi4 CPU. Even so, the 128 CUDA cores of the jetson nano didn't surpass its performance.
 
 ## Surprisingly the latest jetpack 4.6.3 seemed to be slower than jetpack 4.3, so jetpack 4.3 was used in these experiments (eg, jetpack 4.6.3 only appeared to use two threads while building opencv 4.7.0 with CUDA, taking 7 hours for the build, whereas jetpack 4.3 used all four threads and took only 5 hours for the build): this was not investigated further).
 
-# To save build time, the openCV CUDA build on the jetson nano was limited to Python3 (Python2 turned off) and only CUDA_ARCH_BIN 5.3 (for the nano) was built to save time. CUDNN_VERSION='7.6' was used for consistency with jetpack 4.3.
+## To save build time, the openCV CUDA build on the jetson nano was limited to Python3 (Python2 turned off) and only CUDA_ARCH_BIN 5.3 (for the nano) was built to save time. CUDNN_VERSION='7.6' was used for consistency with jetpack 4.3. It was beyond the scope of this test to experiment with build parameters. 
 
+**** WS 03/25/23
 
- 
 
